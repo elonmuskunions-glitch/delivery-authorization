@@ -1,0 +1,45 @@
+from reportlab.platypus import SimpleDocTemplate, Paragraph
+
+from reportlab.lib.styles import getSampleStyleSheet
+
+from reportlab.lib.pagesizes import LETTER
+
+
+
+file_path = "/mnt/data/UPS_Package_Authorization_Peggy_v2.pdf"
+
+
+
+doc = SimpleDocTemplate(file_path, pagesize=LETTER)
+
+styles = getSampleStyleSheet()
+
+content = []
+
+
+
+content.append(Paragraph("<b>Package Delivery Authorization</b>", styles["Title"]))
+
+content.append(Paragraph("Date: January 21, 2026", styles["Normal"]))
+
+content.append(Paragraph("<br/>I hereby authorize UPS to release and deliver any packages addressed to me to the following individual:", styles["Normal"]))
+
+content.append(Paragraph("<br/><b>Authorized Recipient:</b> Peggy", styles["Normal"]))
+
+content.append(Paragraph("<br/>This authorization applies to all deliveries handled by UPS at the listed delivery address.", styles["Normal"]))
+
+content.append(Paragraph("<br/><b>Authorizing Party:</b> Elon Musk", styles["Normal"]))
+
+content.append(Paragraph("Email: elonmuskunions@gmail.com", styles["Normal"]))
+
+content.append(Paragraph("Location: Houston, Texas", styles["Normal"]))
+
+content.append(Paragraph("<br/>Signature: ____________________________", styles["Normal"]))
+
+
+
+doc.build(content)
+
+
+
+file_path
